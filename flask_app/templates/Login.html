@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container col-3">
+        <h2 class="col-5">Register</h2>
+        <form action="/register/process" method = "POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" name ="first_name"class="form-control mt-3">
+            <label for="last_name">Last Name</label>
+            <input type="text" name ="last_name"class="form-control mt-3">
+            <label for="email">Email</label>
+            <input type="text" name = "email"class="form-control mt-3">
+            <label for="password">Password</label>
+            <input type="text"name = "password"class="form-control mt-3">
+            <label for="confirm_pw">Confirm Password</label>
+            <input type="text" name = "confirm_pw" class="form-control mt-3">
+            <input class="btn btn-primary mt-3" type="submit" name="submit" value="Create New Account">
+    </form> 
+    </div>
+    
+    <div class="mx-auto col-3 mt-5">
+        <h2 class="col-10">Login</h2>
+        <form action="/login/process" method = "POST">
+        <label for="login_email">Email</label>
+        <input class="form-control mt-3" type="text" name ="login_email">
+
+        <label for="login_pw">Password</label>
+        <input class="form-control mt-3"type="text"name ="login_pw">
+
+        <input type="submit" name="Login"class="btn btn-primary">
+    </form>
+    </div>
+    
+</body>
+</html>
